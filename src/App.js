@@ -1,14 +1,16 @@
+/* eslint-disable no-unused-vars */
 import "./App.css";
-import LoginView from "./views/LoginView";
+import Calendario from "./Components/calendario/Calendario";
+import Home from "./Components/home/Home";
+import Login from "./Components/login/Login";
 
 
 const App = () => {
-  return( 
-    <>
+  return (
+    
+      <Home/>
 
-    </>
-  
-  )
+  );
 };
 
 export default App;
