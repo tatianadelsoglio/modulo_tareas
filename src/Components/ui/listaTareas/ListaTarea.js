@@ -1,10 +1,14 @@
 import { Dialog, Ellipsis, List, Modal, SwipeAction } from "antd-mobile";
-import React, { useRef } from "react";
+import React, { useContext, useRef} from "react";
 import { useHistory } from "react-router-dom";
 import { EditSOutline, CheckOutline } from 'antd-mobile-icons';
 import "./ListaTarea.css";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const ListaTarea = () => {
+
+  const {fecha} = useContext(GlobalContext);
+
   let history = useHistory();
 
   const ref = useRef(null);
@@ -12,6 +16,7 @@ const ListaTarea = () => {
   const handleModalDetalleTarea = () => {
     history.push("/detalletarea");
   };
+
 
   const handleModalCerrar = () => {
       Modal.alert({
@@ -31,7 +36,7 @@ const ListaTarea = () => {
 
   return (
     <>
-      <div>
+      <div className="div_tareas">
         <List>
           <SwipeAction
             ref={ref}
@@ -68,7 +73,7 @@ const ListaTarea = () => {
               },
             ]}
           >
-            <List.Item description="Adrian Sabo" extra="29-07-2022">
+            <List.Item description="Adrian Sabo" extra={fecha}>
               <Ellipsis
                 direction="end"
                 content="Llamar a Adrian, conversar sobre nuevos insumos"
